@@ -4,6 +4,7 @@ import warnings
 from typing import Any, Callable, Dict, List, Optional, Type
 
 from pydantic import BaseModel, ConfigDict, create_model, Field
+from pydantic._internal.
 from pydantic.fields import FieldInfo
 from typing_extensions import TypeGuard
 
