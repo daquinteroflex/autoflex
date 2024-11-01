@@ -75,7 +75,7 @@ def field_info_to_property(field: pd.fields.FieldInfo, field_name: str) -> Prope
     Returns:
         Property: The corresponding Property instance.
     """
-    description = field.description or ""
+    description = ""
     default = field.default if field.default is not None else ""
     types = str(field.outer_type_) if hasattr(field, 'outer_type_') else ""
 
