@@ -41,6 +41,7 @@ pytest = {version="*", optional=true}
 
 # For custom class verification with our existing classes
 tidy3d = {version="*", optional=true}
+flow360 = {git="git@github.com:flexcompute/Flow360.git", optional=true}
 
 
 [tool.poetry.extras]
