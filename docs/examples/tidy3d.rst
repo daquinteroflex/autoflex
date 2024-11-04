@@ -4,4 +4,8 @@
 
 .. currentmodule:: tidy3d
 
+
 .. autoflex:: tidy3d.Simulation
+
+
+.. autoclass:: tidy3d.Simulation

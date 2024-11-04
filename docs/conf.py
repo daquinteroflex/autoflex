@@ -18,6 +18,7 @@ master_doc = "index"  # The master toctree document.
 
 extensions = [
     "autoflex",
+    "sphinx.ext.autodoc"
 ]
 
 templates_path = [
