@@ -1,6 +1,7 @@
 from typing import Any, List
 from docutils import nodes
 from docutils.parsers.rst import directives
+from sphinx.util.docutils import SphinxDirective
 from sphinx.ext.autodoc.directive import AutodocDirective
 from sphinx.util.logging import getLogger
 from pydantic import BaseModel
@@ -13,7 +14,7 @@ from autoflex.constructors.parameter_table import create_property_table, model_t
 
 logger = getLogger(__name__)
 
-class AutoFlex(AutodocDirective):
+class AutoFlex(SphinxDirective):
     """
     Extension of the ``.. autodoc::`` directive in a directly compatible format.
 
@@ -51,7 +52,7 @@ class AutoFlex(AutodocDirective):
     }
 
     def run(self) -> List[nodes.Node]:
-        original_autodoc_result = super().run()
+        # original_autodoc_result = super().run()
 
         import_path = self.arguments[0]
         logger.debug(f"AutoFlex processing import path: {import_path}")
