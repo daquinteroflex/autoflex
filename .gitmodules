@@ -1,3 +1,6 @@
 [submodule "packages/tidy3d"]
 	path = packages/tidy3d
 	url = git@github.com:flexcompute/tidy3d.git
+[submodule "packages/sphinx"]
+	path = packages/sphinx
+	url = git@github.com:daquintero/sphinx.git
