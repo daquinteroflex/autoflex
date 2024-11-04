@@ -2,6 +2,7 @@ from typing import Any, List
 from docutils import nodes
 from docutils.parsers.rst import directives
 from sphinx.util.docutils import SphinxDirective
+from sphinx.ext.autodoc.directive import AutodocDirective
 from sphinx.util.logging import getLogger
 from pydantic import BaseModel
 from pydantic.v1 import BaseModel as BaseModelV1
@@ -15,7 +16,7 @@ logger = getLogger(__name__)
 
 class AutoFlex(SphinxDirective):
     """
-    Extension of the ``.. autoflex::`` directive.
+    Extension of the ``.. autodoc::`` directive in a directly compatible format.
 
     In order to maintain compatibility and extensibility with all versions of Pydantic,
     this tool uses the interconnected JSON definition of the data structure instead of the
@@ -51,6 +52,8 @@ class AutoFlex(SphinxDirective):
     }
 
     def run(self) -> List[nodes.Node]:
+        # original_autodoc_result = super().run()
+
         import_path = self.arguments[0]
         logger.debug(f"AutoFlex processing import path: {import_path}")
 
@@ -71,6 +74,9 @@ class AutoFlex(SphinxDirective):
             # return [error]
             pass
 
+
+        # return original_autodoc_result
+
         # Generate documentation nodes from the schema
         nodes_list = []
 
@@ -84,10 +90,10 @@ class AutoFlex(SphinxDirective):
         section_node += title_node
 
         # Description
-        description = self.options.get('description', cls.__doc__)
-        if description:
-            description_node = nodes.paragraph(text=description)
-            section_node += description_node
+        # description = self.options.get('description', cls.__doc__)
+        # if description:
+        #    description_node = nodes.paragraph(text=description)
+        #    section_node += description_node
         #
         # # JSON Schema as a literal block
         # try:
@@ -124,3 +130,5 @@ class AutoFlex(SphinxDirective):
         nodes_list.append(section_node)
 
         return nodes_list
+
+

@@ -29,10 +29,10 @@ packages = [
 
 
 [tool.poetry.dependencies]
-python = ">=3.10, <3.12"
-docutils = ">=0.16,<1.0"
+python = ">=3.11, <3.12"
+docutils = ">=0.20,<1.0"
 pydantic = {version="^2"}
-sphinx = {version="^7"}
+sphinx = {path="packages/sphinx", develop=true}
 
 
 # Testing, linting and docs
@@ -40,7 +40,8 @@ sphinx_book_theme = {version = "*", optional = true}
 pytest = {version="*", optional=true}
 
 # For custom class verification with our existing classes
-tidy3d = {version="*", optional=true}
+tidy3d = {path="packages/tidy3d", optional=true, develop=true}
+flow360 = {git="git@github.com:flexcompute/Flow360.git", optional=true}
 
 
 [tool.poetry.extras]
