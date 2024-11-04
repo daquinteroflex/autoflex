@@ -15,6 +15,7 @@ from .install import install_verification
 from autoflex.directives import AutoFlex
 from autoflex.styles.setup import copy_autoflex_styles_to_static
 from autoflex.extractors import determine_pydantic_version_from_base_model, get_field_infos
+from autoflex.constructors.documenter import AutoflexDocumenter
 
 __version__ = "0.0.1"
 __author__ = "Dario Quintero Dominguez"
@@ -28,6 +29,8 @@ def setup(app) -> Dict[str, Any]:
     print("Started loading `autoflex` extension.")
     # DIRECTIVES
     app.add_directive("autoflex", AutoFlex)
+
+    app.add_autodocumenter(AutoflexDocumenter)
     # load the icon node/role
     # app.add_node(icon_node, **_NODE_VISITORS)  # type: ignore
     # app.add_role("icon", Icon())
